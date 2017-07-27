@@ -39,8 +39,14 @@ public class DeviceController {
     }
 
     @RequestMapping(value = "/locationNumber/endsWith", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<DeviceDto> getAllDevicesWhereNameEndssWith(@RequestParam("name") String name) {
+    public List<DeviceDto> getAllDevicesWhereNameEndsWith(@RequestParam("name") String name) {
         return this.deviceService.getAllDevicesWhereNameEndsWith(name);
+    }
+
+
+    @RequestMapping(value = "/locationNumber/contain", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<DeviceDto> getAllDevicesThatContain(@RequestParam("name") String name) {
+        return this.deviceService.getAllDevicesThatContain(name);
     }
 
 

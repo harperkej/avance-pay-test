@@ -19,5 +19,7 @@ public interface DeviceRepository {
 
     public List<DeviceEntity> getAllDevicesWhereNameEndsWith(String name);
 
+    public List<DeviceEntity> getAllDevicesThatContain(String name);
+
 
 }

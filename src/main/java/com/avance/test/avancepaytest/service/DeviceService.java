@@ -19,5 +19,7 @@ public interface DeviceService {
 
     public List<DeviceDto> getAllDevicesWhereNameEndsWith(String name);
 
+    public List<DeviceDto> getAllDevicesThatContain(String name);
+
 
 }
