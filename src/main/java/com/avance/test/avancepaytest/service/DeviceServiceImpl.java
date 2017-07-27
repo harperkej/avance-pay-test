@@ -29,9 +29,9 @@ public class DeviceServiceImpl implements DeviceService {
     }
 
     @Override
-    public List<DeviceDto> getAllDevicesWithLocationNoGreaterThan10() {
+    public List<DeviceDto> getAllDevicesWithLocationNoGreaterThan(int greaterThan) {
         List<DeviceDto> result = null;
-        List<DeviceEntity> foundDevices = this.deviceRepository.getAllDevicesWithLocationNoGreaterThan10();
+        List<DeviceEntity> foundDevices = this.deviceRepository.getAllDevicesWithLocationNoGreaterThan(greaterThan);
 
         if (foundDevices != null) {
             result = new ArrayList<>();
@@ -41,9 +41,9 @@ public class DeviceServiceImpl implements DeviceService {
     }
 
     @Override
-    public List<DeviceDto> getAllDevicesWithLocationNoLessThanOrEqualTo10() {
+    public List<DeviceDto> getAllDevicesWithLocationNoLessThanOrEqualTo(int lessThan) {
         List<DeviceDto> result = null;
-        List<DeviceEntity> foundDevices = this.deviceRepository.getAllDevicesWithLocationNoLessThanOrEqualTo10();
+        List<DeviceEntity> foundDevices = this.deviceRepository.getAllDevicesWithLocationNoLessThanOrEqualTo(lessThan);
 
         if (foundDevices != null) {
             result = new ArrayList<>();

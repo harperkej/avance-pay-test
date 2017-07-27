@@ -11,9 +11,9 @@ public interface DeviceService {
 
     public DeviceDto createOne(DeviceDto deviceDto);
 
-    public List<DeviceDto> getAllDevicesWithLocationNoGreaterThan10();
+    public List<DeviceDto> getAllDevicesWithLocationNoGreaterThan(int greaterThan);
 
-    public List<DeviceDto> getAllDevicesWithLocationNoLessThanOrEqualTo10();
+    public List<DeviceDto> getAllDevicesWithLocationNoLessThanOrEqualTo(int lessThan);
 
 
 }

@@ -11,9 +11,9 @@ public interface DeviceRepository {
 
     public DeviceEntity createOne(DeviceEntity deviceEntity);
 
-    public List<DeviceEntity> getAllDevicesWithLocationNoGreaterThan10();
+    public List<DeviceEntity> getAllDevicesWithLocationNoGreaterThan(int greaterThan);
 
-    public List<DeviceEntity> getAllDevicesWithLocationNoLessThanOrEqualTo10();
+    public List<DeviceEntity> getAllDevicesWithLocationNoLessThanOrEqualTo(int lessThan);
 
 
 }

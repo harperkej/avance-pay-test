@@ -26,16 +26,18 @@ public class DeviceRepositoryImpl implements DeviceRepository {
     }
 
     @Override
-    public List<DeviceEntity> getAllDevicesWithLocationNoGreaterThan10() {
+    public List<DeviceEntity> getAllDevicesWithLocationNoGreaterThan(int greaterThan) {
         Query query = entityManager.createQuery("SELECT d FROM DeviceEntity d WHERE " +
-                "LENGTH(d.locationNumber) > 10");
+                "LENGTH(d.locationNumber) > :greaterThan");
+        query.setParameter("greaterThan", greaterThan);
         return query.getResultList();
     }
 
     @Override
-    public List<DeviceEntity> getAllDevicesWithLocationNoLessThanOrEqualTo10() {
+    public List<DeviceEntity> getAllDevicesWithLocationNoLessThanOrEqualTo(int lessThan) {
         Query query = entityManager.createQuery("SELECT d FROM DeviceEntity d WHERE " +
-                "LENGTH(d.locationNumber) <= 10");
+                "LENGTH(d.locationNumber) <= :lessThan");
+        query.setParameter("lessThan", lessThan);
         return query.getResultList();
     }
 
