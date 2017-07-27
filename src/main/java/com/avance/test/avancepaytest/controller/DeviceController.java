@@ -38,4 +38,10 @@ public class DeviceController {
         return this.deviceService.getAllDevicesWhereNameStartsWith(name);
     }
 
+    @RequestMapping(value = "/locationNumber/endsWith", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<DeviceDto> getAllDevicesWhereNameEndssWith(@RequestParam("name") String name) {
+        return this.deviceService.getAllDevicesWhereNameEndsWith(name);
+    }
+
+
 }

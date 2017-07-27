@@ -50,4 +50,13 @@ public class DeviceRepositoryImpl implements DeviceRepository {
         return query.getResultList();
     }
 
+    @Override
+    public List<DeviceEntity> getAllDevicesWhereNameEndsWith(String name) {
+        Query query = entityManager.createQuery("SELECT d FROM DeviceEntity d WHERE " +
+                "d.name LIKE :name");
+        name = "%" + name;
+        query.setParameter("name", name);
+        return query.getResultList();
+    }
+
 }

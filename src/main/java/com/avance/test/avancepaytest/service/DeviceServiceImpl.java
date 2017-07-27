@@ -64,6 +64,18 @@ public class DeviceServiceImpl implements DeviceService {
         return result;
     }
 
+    @Override
+    public List<DeviceDto> getAllDevicesWhereNameEndsWith(String name) {
+        List<DeviceDto> result = null;
+        List<DeviceEntity> foundDevices = this.deviceRepository.getAllDevicesWhereNameEndsWith(name);
+
+        if (foundDevices != null) {
+            result = new ArrayList<>();
+            foundDevices.stream().map(DeviceServiceImpl::convertEntityToDto).forEach(result::add);
+        }
+        return result;
+    }
+
 
     private static DeviceDto convertEntityToDto(DeviceEntity deviceEntity) {
         DeviceDto deviceDto = new DeviceDto();
