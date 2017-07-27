@@ -11,7 +11,7 @@ public class DeviceDto {
 
     private String name;
 
-    private int locationNumber;
+    private long locationNumber;
 
     private Timestamp insertedDateTime;
 
@@ -31,11 +31,11 @@ public class DeviceDto {
         this.name = name;
     }
 
-    public int getLocationNumber() {
+    public long getLocationNumber() {
         return locationNumber;
     }
 
-    public void setLocationNumber(int locationNumber) {
+    public void setLocationNumber(long locationNumber) {
         this.locationNumber = locationNumber;
     }
 

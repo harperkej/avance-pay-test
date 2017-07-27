@@ -16,7 +16,7 @@ public class DeviceEntity {
 
     private String name;
 
-    private int locationNumber;
+    private long locationNumber;
 
     private Timestamp insertedDateTime;
 
@@ -36,11 +36,11 @@ public class DeviceEntity {
         this.name = name;
     }
 
-    public int getLocationNumber() {
+    public long getLocationNumber() {
         return locationNumber;
     }
 
-    public void setLocationNumber(int locationNumber) {
+    public void setLocationNumber(long locationNumber) {
         this.locationNumber = locationNumber;
     }
 
