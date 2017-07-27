@@ -15,5 +15,7 @@ public interface DeviceRepository {
 
     public List<DeviceEntity> getAllDevicesWithLocationNoLessThanOrEqualTo(int lessThan);
 
+    public List<DeviceEntity> getAllDevicesWhereNameStartsWith(String name);
+
 
 }

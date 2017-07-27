@@ -15,5 +15,7 @@ public interface DeviceService {
 
     public List<DeviceDto> getAllDevicesWithLocationNoLessThanOrEqualTo(int lessThan);
 
+    public List<DeviceDto> getAllDevicesWhereNameStartsWith(String name);
+
 
 }
