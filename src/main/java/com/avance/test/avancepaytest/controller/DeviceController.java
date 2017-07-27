@@ -33,18 +33,18 @@ public class DeviceController {
         return this.deviceService.getAllDevicesWithLocationNoGreaterThan(greaterThan);
     }
 
-    @RequestMapping(value = "/locationNumber/startWith", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/deviceName/startWith", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<DeviceDto> getAllDevicesWhereNameStartsWith(@RequestParam("name") String name) {
         return this.deviceService.getAllDevicesWhereNameStartsWith(name);
     }
 
-    @RequestMapping(value = "/locationNumber/endsWith", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/deviceName/endsWith", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<DeviceDto> getAllDevicesWhereNameEndsWith(@RequestParam("name") String name) {
         return this.deviceService.getAllDevicesWhereNameEndsWith(name);
     }
 
 
-    @RequestMapping(value = "/locationNumber/contain", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/deviceName/contain", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<DeviceDto> getAllDevicesThatContain(@RequestParam("name") String name) {
         return this.deviceService.getAllDevicesThatContain(name);
     }

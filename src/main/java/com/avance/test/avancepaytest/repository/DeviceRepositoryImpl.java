@@ -1,6 +1,7 @@
 package com.avance.test.avancepaytest.repository;
 
 import com.avance.test.avancepaytest.entity.DeviceEntity;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,15 +20,20 @@ public class DeviceRepositoryImpl implements DeviceRepository {
     @Autowired
     EntityManager entityManager;
 
+    private Session getSession() {
+        return entityManager.unwrap(Session.class);
+    }
 
     @Override
     public DeviceEntity createOne(DeviceEntity deviceEntity) {
-        return entityManager.merge(deviceEntity);
+        Session session = getSession();
+        return (DeviceEntity) session.merge(deviceEntity);
     }
 
     @Override
     public List<DeviceEntity> getAllDevicesWithLocationNoGreaterThan(int greaterThan) {
-        Query query = entityManager.createQuery("SELECT d FROM DeviceEntity d WHERE " +
+        Session session = getSession();
+        Query query = getSession().createQuery("SELECT d FROM DeviceEntity d WHERE " +
                 "LENGTH(d.locationNumber) > :greaterThan");
         query.setParameter("greaterThan", greaterThan);
         return query.getResultList();
@@ -35,7 +41,8 @@ public class DeviceRepositoryImpl implements DeviceRepository {
 
     @Override
     public List<DeviceEntity> getAllDevicesWithLocationNoLessThanOrEqualTo(int lessThan) {
-        Query query = entityManager.createQuery("SELECT d FROM DeviceEntity d WHERE " +
+        Session session = getSession();
+        Query query = getSession().createQuery("SELECT d FROM DeviceEntity d WHERE " +
                 "LENGTH(d.locationNumber) <= :lessThan");
         query.setParameter("lessThan", lessThan);
         return query.getResultList();
@@ -43,7 +50,8 @@ public class DeviceRepositoryImpl implements DeviceRepository {
 
     @Override
     public List<DeviceEntity> getAllDevicesWhereNameStartsWith(String name) {
-        Query query = entityManager.createQuery("SELECT d FROM DeviceEntity d WHERE " +
+        Session session = getSession();
+        Query query = getSession().createQuery("SELECT d FROM DeviceEntity d WHERE " +
                 "d.name LIKE :name");
         name = name + "%";
         query.setParameter("name", name);
@@ -52,7 +60,8 @@ public class DeviceRepositoryImpl implements DeviceRepository {
 
     @Override
     public List<DeviceEntity> getAllDevicesWhereNameEndsWith(String name) {
-        Query query = entityManager.createQuery("SELECT d FROM DeviceEntity d WHERE " +
+        Session session = getSession();
+        Query query = getSession().createQuery("SELECT d FROM DeviceEntity d WHERE " +
                 "d.name LIKE :name");
         name = "%" + name;
         query.setParameter("name", name);
@@ -61,7 +70,8 @@ public class DeviceRepositoryImpl implements DeviceRepository {
 
     @Override
     public List<DeviceEntity> getAllDevicesThatContain(String name) {
-        Query query = entityManager.createQuery("SELECT d FROM DeviceEntity d WHERE " +
+        Session session = getSession();
+        Query query = getSession().createQuery("SELECT d FROM DeviceEntity d WHERE " +
                 "d.name LIKE :name");
         name = "%" + name + "%";
         query.setParameter("name", name);
