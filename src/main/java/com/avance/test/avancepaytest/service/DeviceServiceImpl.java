@@ -201,7 +201,8 @@ public class DeviceServiceImpl implements DeviceService {
             for (PropertyDescriptor propertyDescriptor : Introspector.getBeanInfo(DeviceEntity.class).getPropertyDescriptors()) {
                 //Get all getters of the Device entity.
                 Method method = propertyDescriptor.getReadMethod();
-                result.put(method.getName().replace("get", ""), method.getReturnType().toString());
+                if (!method.getName().replace("get", "").equals("Class") && !method.getName().replace("get", "").equals("InsertedDateTime") && !method.getName().replace("get", "").equals("Id"))
+                    result.put(method.getName().replace("get", ""), method.getReturnType().toString());
             }
         } catch (Exception e) {
             throw new ServiceException("An error occurred while reading the field and return types of each field from Device entit.", e.getMessage(), null);
