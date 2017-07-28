@@ -12,15 +12,6 @@ public interface DeviceRepository {
 
     public DeviceEntity createOne(DeviceEntity deviceEntity) throws RepositoryException;
 
-    public List<DeviceEntity> getAllDevicesWithLocationNoGreaterThan(int greaterThan) throws RepositoryException;
-
-    public List<DeviceEntity> getAllDevicesWithLocationNoLessThanOrEqualTo(int lessThan) throws RepositoryException;
-
-    public List<DeviceEntity> getAllDevicesWhereNameStartsWith(String name) throws RepositoryException;
-
-    public List<DeviceEntity> getAllDevicesWhereNameEndsWith(String name) throws RepositoryException;
-
-    public List<DeviceEntity> getAllDevicesThatContain(String name) throws RepositoryException;
-
+    public List<DeviceEntity> search(String query) throws RepositoryException;
 
 }

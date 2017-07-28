@@ -34,6 +34,10 @@ public class ExceptionHandlerController {
             case NO_RESOURCE_FOUND:
                 response = new ResponseEntity<ExceptionResponseDto>(responseDto, HttpStatus.NOT_FOUND);
                 break;
+            case INVALID_CRITERIA:
+            case INVALID_FIELD_NAME:
+                response = new ResponseEntity<ExceptionResponseDto>(responseDto, HttpStatus.BAD_REQUEST);
+                break;
             default:
                 responseDto.setMessage("Something went wrong in server :(. Please contact administrator");
                 response = new ResponseEntity<ExceptionResponseDto>(responseDto, HttpStatus.INTERNAL_SERVER_ERROR);

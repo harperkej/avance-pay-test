@@ -6,6 +6,8 @@ package com.avance.test.avancepaytest.exception;
 public enum ExceptionCause {
 
     NO_RESOURCE_FOUND,
-    ERROR_STORING_RESOURCE
+    ERROR_STORING_RESOURCE,
+    INVALID_FIELD_NAME,
+    INVALID_CRITERIA;
 
 }
