@@ -3,6 +3,7 @@ package com.avance.test.avancepaytest.controller;
 import com.avance.test.avancepaytest.dto.DeviceDto;
 import com.avance.test.avancepaytest.service.DeviceService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,36 +19,40 @@ public class DeviceController {
     @Autowired
     DeviceService deviceService;
 
+    @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     public DeviceDto createOne(@RequestBody DeviceDto deviceDto) {
         return deviceService.createOne(deviceDto);
     }
 
+    @ResponseStatus(HttpStatus.FOUND)
     @RequestMapping(value = "/locationNumber/lessThan", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<DeviceDto> getAllDevicesWithLocationNoLessThanOrEqualTo(@RequestParam("lessThan") int lessThan) {
         return this.deviceService.getAllDevicesWithLocationNoLessThanOrEqualTo(lessThan);
     }
 
+    @ResponseStatus(HttpStatus.FOUND)
     @RequestMapping(value = "/locationNumber/greaterThan", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<DeviceDto> getAllDevicesWithLocationNoGreaterThan(@RequestParam("greaterThan") int greaterThan) {
         return this.deviceService.getAllDevicesWithLocationNoGreaterThan(greaterThan);
     }
 
+    @ResponseStatus(HttpStatus.FOUND)
     @RequestMapping(value = "/deviceName/startWith", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<DeviceDto> getAllDevicesWhereNameStartsWith(@RequestParam("name") String name) {
         return this.deviceService.getAllDevicesWhereNameStartsWith(name);
     }
 
+    @ResponseStatus(HttpStatus.FOUND)
     @RequestMapping(value = "/deviceName/endsWith", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<DeviceDto> getAllDevicesWhereNameEndsWith(@RequestParam("name") String name) {
         return this.deviceService.getAllDevicesWhereNameEndsWith(name);
     }
 
-
+    @ResponseStatus(HttpStatus.FOUND)
     @RequestMapping(value = "/deviceName/contain", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<DeviceDto> getAllDevicesThatContain(@RequestParam("name") String name) {
         return this.deviceService.getAllDevicesThatContain(name);
     }
-
 
 }
