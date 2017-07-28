@@ -1,6 +1,7 @@
 package com.avance.test.avancepaytest.repository;
 
 import com.avance.test.avancepaytest.entity.DeviceEntity;
+import com.avance.test.avancepaytest.exception.RepositoryException;
 
 import java.util.List;
 
@@ -9,17 +10,17 @@ import java.util.List;
  */
 public interface DeviceRepository {
 
-    public DeviceEntity createOne(DeviceEntity deviceEntity);
+    public DeviceEntity createOne(DeviceEntity deviceEntity) throws RepositoryException;
 
-    public List<DeviceEntity> getAllDevicesWithLocationNoGreaterThan(int greaterThan);
+    public List<DeviceEntity> getAllDevicesWithLocationNoGreaterThan(int greaterThan) throws RepositoryException;
 
-    public List<DeviceEntity> getAllDevicesWithLocationNoLessThanOrEqualTo(int lessThan);
+    public List<DeviceEntity> getAllDevicesWithLocationNoLessThanOrEqualTo(int lessThan) throws RepositoryException;
 
-    public List<DeviceEntity> getAllDevicesWhereNameStartsWith(String name);
+    public List<DeviceEntity> getAllDevicesWhereNameStartsWith(String name) throws RepositoryException;
 
-    public List<DeviceEntity> getAllDevicesWhereNameEndsWith(String name);
+    public List<DeviceEntity> getAllDevicesWhereNameEndsWith(String name) throws RepositoryException;
 
-    public List<DeviceEntity> getAllDevicesThatContain(String name);
+    public List<DeviceEntity> getAllDevicesThatContain(String name) throws RepositoryException;
 
 
 }

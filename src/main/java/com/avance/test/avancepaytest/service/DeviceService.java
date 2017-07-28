@@ -1,6 +1,7 @@
 package com.avance.test.avancepaytest.service;
 
 import com.avance.test.avancepaytest.dto.DeviceDto;
+import com.avance.test.avancepaytest.exception.ServiceException;
 
 import java.util.List;
 
@@ -9,17 +10,17 @@ import java.util.List;
  */
 public interface DeviceService {
 
-    public DeviceDto createOne(DeviceDto deviceDto);
+    public DeviceDto createOne(DeviceDto deviceDto) throws ServiceException;
 
-    public List<DeviceDto> getAllDevicesWithLocationNoGreaterThan(int greaterThan);
+    public List<DeviceDto> getAllDevicesWithLocationNoGreaterThan(int greaterThan) throws ServiceException;
 
-    public List<DeviceDto> getAllDevicesWithLocationNoLessThanOrEqualTo(int lessThan);
+    public List<DeviceDto> getAllDevicesWithLocationNoLessThanOrEqualTo(int lessThan) throws ServiceException;
 
-    public List<DeviceDto> getAllDevicesWhereNameStartsWith(String name);
+    public List<DeviceDto> getAllDevicesWhereNameStartsWith(String name) throws ServiceException;
 
-    public List<DeviceDto> getAllDevicesWhereNameEndsWith(String name);
+    public List<DeviceDto> getAllDevicesWhereNameEndsWith(String name) throws ServiceException;
 
-    public List<DeviceDto> getAllDevicesThatContain(String name);
+    public List<DeviceDto> getAllDevicesThatContain(String name) throws ServiceException;
 
 
 }
